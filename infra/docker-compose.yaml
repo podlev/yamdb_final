@@ -9,7 +9,7 @@ services:
       - ./.env
   
   web:
-    image: podlev/yamdb:v1
+    image: podlev/api_yamdb
     restart: always
     volumes:
       - static_value:/app/static/
