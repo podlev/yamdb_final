@@ -28,7 +28,6 @@ class IsReadOnlyOrIsAuthorOrIsModerator(BasePermission):
         return False
 
     def has_object_permission(self, request, view, obj):
-
         if request.method in SAFE_METHODS:
             return True
         if request.user.is_authenticated and (
@@ -36,5 +35,4 @@ class IsReadOnlyOrIsAuthorOrIsModerator(BasePermission):
                 or request.user.is_moderator
                 or obj.author == request.user):
             return True
-        else:
-            return False
+        return False
